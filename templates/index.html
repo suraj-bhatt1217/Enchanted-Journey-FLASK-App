@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mystical Adventure</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/main.css')}}"
+    />
+  </head>
+  <body>
+    <div class="story-intro">
+      <h1>Welcome to the Mystical Adventure!</h1>
+      <p>Enter your name to embark on a journey through enchanted lands.</p>
+    </div>
+    <img
+      src="{{ url_for('static', filename='img/autumn-leaves-illuminate-nature-elegance-beauty-generated-by-ai.jpg') }}"
+      alt="Mystical Adventure Logo "
+    />
+    <br />
+    <form action="greet" method="post">
+      {% for message in get_flashed_messages() %}
+      <p class="message">{{message}}</p>
+      {% endfor %}
+      <br />
+      <input type="text" name="name_input" placeholder="Enter your name" />
+      <br />
+      <input type="submit" value="BEGIN YOUR JOURNEY" id="greet" />
+    </form>
+  </body>
+</html>
